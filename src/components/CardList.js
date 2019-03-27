@@ -1,23 +1,21 @@
 import React from 'react'
+import { connect } from "react-redux";
 import Card from './Card'
+import { getCards } from "../redux/selectors";
 
-function CardList(){
-    return(
-        <div className="cards">
-            <Card value={0} />
-            <Card value={0} />
-            <Card value={1} />
-            <Card value={1} />
-            <Card value={2} />
-            <Card value={2} />
-            <Card value={3} />
-            <Card value={3} />
-            <Card value={4} />
-            <Card value={4} />
-            <Card value={5} />
-            <Card value={5} />
-        </div>
-    )
-}
+const CardList = ({ cards }) => (
+    <div className="cards">
+      {cards && cards.length
+        ? cards.map((card, index) => {
+            return <Card key={`card-${card.id}`} card={card} />;
+          })
+        : "No cards!"}
+    </div>
+  );
 
-export default CardList
+const mapStateToProps = state => {
+    const cards = getCards(state);
+    return { cards };
+  };
+
+export default connect(mapStateToProps)(CardList);

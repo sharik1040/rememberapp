@@ -1,11 +1,22 @@
 import React from 'react'
+import { connect } from "react-redux";
+import { startGame } from "../redux/actions";
 
-function Modal(){
+function Modal({startGame}){
     return(
         <div className="modal">
-            YOU WIN!
+            <div className="modal__text">
+                YOU WIN!
+            </div>
+            <button className="modal__btn"         
+                    onClick={() => {  
+                        startGame();
+                    }
+                }>
+                repeat
+            </button>
         </div>
     )
 }
 
-export default Modal
+export default connect(null,{ startGame })(Modal);
