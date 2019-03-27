@@ -15,7 +15,8 @@ const initialState = {
             10:{"id":10, "value":"5", "clicked":false, "completed":false},
             11:{"id":11, "value":"5", "clicked":false, "completed":false}
         },
-    selectedCards: null
+    selectedCards: null,
+    score: 0
 };
 
 export default function(state = initialState, action) {
@@ -54,7 +55,8 @@ export default function(state = initialState, action) {
                         clicked: isCardsEqual
                     }
                 },
-                selectedCards: []
+                selectedCards: [],
+                score: isCardsEqual ? state.score + 2 : state.score
             }
         }else{
             return state;

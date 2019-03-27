@@ -1,20 +1,22 @@
-import React, {Component} from 'react'
+import React from 'react'
+import { connect } from "react-redux";
+import { getScore } from "../redux/selectors";
+import Modal from './Modal'
 
-class Score extends Component{
-    render(){
-        const {value} = this.props
-        const body = <section>{value}</section>
-        return (
-            <div className="score">
-                <div className="score__title">
-                    SCORE: 
-                </div>
-                <div className="score__value">
-                    { body }
-                </div>
-            </div>
-        )   
-    }
-}
+const Score = ({ score }) => (
+    <div className="score">
+        <div className="score__title">
+            SCORE: 
+        </div>
+        <div className="score__value">
+            { score }
+        </div>
+    </div>
+);
 
-export default Score
+const mapStateToProps = state => {
+    const score = getScore(state);
+    return { score: score};
+  };
+
+  export default connect(mapStateToProps)(Score);
