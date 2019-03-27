@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from "react-redux";
 import { getScore } from "../redux/selectors";
-import Modal from './Modal'
 
 const Score = ({ score }) => (
     <div className="score">

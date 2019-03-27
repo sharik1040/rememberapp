@@ -10,3 +10,5 @@ export const getCards = store =>
   getCardList(store).map(id => getCardById(store, id));
 
 export const getScore = store => store.gameProcess.score;
+
+export const getWinResult = store => store.gameProcess.isWin;

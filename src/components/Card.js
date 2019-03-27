@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from "react-redux";
 import cx from "classnames";
-import { chooseCard, checkPair } from "../redux/actions";
+import { chooseCard, checkPair, checkWin } from "../redux/actions";
 
-const Card = ({ card, chooseCard, checkPair }) => (
+const Card = ({ card, chooseCard, checkPair, checkWin }) => (
     <div className={cx(
             "cards__item",
             "noselect",
@@ -12,7 +12,8 @@ const Card = ({ card, chooseCard, checkPair }) => (
         )}
         onClick={() => {  
                         chooseCard(card.id);
-                        setTimeout(checkPair, 500);
+                        setTimeout(checkPair, 500);   
+                        setTimeout(checkWin, 1000);    
                     }
                 }
         >
@@ -22,4 +23,4 @@ const Card = ({ card, chooseCard, checkPair }) => (
     </div>
   );
 
-export default connect(null,{ chooseCard, checkPair })(Card);
+export default connect(null,{ chooseCard, checkPair, checkWin })(Card);

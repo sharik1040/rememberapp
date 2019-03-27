@@ -1,4 +1,4 @@
-import { CHOOSE_CARD, CHECK_PAIR } from "../actionTypes";
+import { CHOOSE_CARD, CHECK_PAIR, CHECK_WIN, START_GAME } from "../actionTypes";
 
 const initialState = {
     allIds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
@@ -59,10 +59,23 @@ export default function(state = initialState, action) {
                 score: isCardsEqual ? state.score + 2 : state.score
             }
         }else{
-            return state;
+            newState = {
+                ...state
+            }
         }
         return newState;
     }
+    case CHECK_WIN:
+        newState = {
+            ...state,
+            isWin: (state.score===12) ? true: false
+        }
+        return newState;
+    case START_GAME:
+        newState = {
+            ...initialState
+        }
+        return newState;
     default:
       return state;
   }
