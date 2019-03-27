@@ -6,7 +6,7 @@ import "./styles.css";
 
 function App(){
     return(
-        <div class="app">
+        <div className="app">
             <CardList />
             <Score value={0}/>
 

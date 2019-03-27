@@ -1,37 +1,25 @@
-import React, {Component} from 'react'
+import React from 'react'
+import { connect } from "react-redux";
 import cx from "classnames";
+import { chooseCard, checkPair } from "../redux/actions";
 
-class Card extends Component{
-    state ={
-        isClicked: false,
-        isCompleted: false
-    }
+const Card = ({ card, chooseCard, checkPair }) => (
+    <div className={cx(
+            "cards__item",
+            "noselect",
+            card.clicked && "cards__item--clicked",
+            card.completed && "cards__item--completed"
+        )}
+        onClick={() => {  
+                        chooseCard(card.id);
+                        setTimeout(checkPair, 500);
+                    }
+                }
+        >
+        <div className="cards__value">
+            { card.clicked ? card.value : ""}
+        </div>
+    </div>
+  );
 
-    render(){
-        const {card} = this.props
-        const body = this.state.isClicked && <section>{card.value}</section>
-        return (
-            <div>
-                <li className={cx(
-                            "cards__item",
-                            "noselect",
-                            this.state.isClicked && "cards__item--clicked",
-                            this.state.isCompleted && "cards__item--completed"
-                    )} onClick={this.handleClick}>
-                    <div className="cards__value">
-                        { body }
-                    </div>
-                </li>
-            </div>
-        )   
-    }
-
-    handleClick = () => {
-        this.setState({
-            isCompleted: (this.state.isClicked) ? true: false,
-            isClicked: !this.state.isClicked
-        })
-    }
-}
-
-export default Card
+export default connect(null,{ chooseCard, checkPair })(Card);
