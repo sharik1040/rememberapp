@@ -1,13 +1,11 @@
 import React from 'react'
-import Card from './components/Card'
+import CardList from './components/CardList'
 import "./styles.css";
 
 function App(){
     return(
         <div>
-            <h1>Remember app</h1>
-            <Card value={0} />
-            <Card value={0} />
+            <CardList />
         </div>
     )
 }
