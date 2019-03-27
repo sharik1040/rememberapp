@@ -1,0 +1,93 @@
+/** common **/
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+}
+
+/** main container App **/
+.app{
+    display: flex;
+}
+
+/** modal for congratulation **/
+.modal{
+    font-size: 56px;
+    margin: 0 auto;
+    display: flex;
+    text-shadow: 3px 3px 0 #040f00,
+                1px -1px 0 #040f00,
+                -1px 1px 0 #040f00,
+                -1px -1px 0 #040f00;
+    color: #e7edab;
+    transition: all 1s;
+}
+
+/** cards grid **/
+.cards{
+    max-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/** card item **/
+.cards__item{
+    border:1px solid #040f00;
+    background-color: #1d5b00;
+    border-radius: 5px;
+    width: 100px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.cards__item:nth-of-type(2n+1){
+    margin-right: 0;
+}
+
+.cards__item:nth-of-type(5n){
+    margin-bottom: 0;
+}
+
+.cards__value{
+    font-size: 40px;
+}
+
+.cards__item--clicked{
+    background-color: #e7edab;
+    color: #1d5b00;
+    -webkit-transition: .5s;
+    -moz-trasition: .5s;
+    transition: .5s;
+}
+
+.cards__item--completed{
+    background-color: #fff;  
+    color: #fff;
+    border:1px solid #fff;
+    -webkit-transition: .3s;
+    -moz-trasition: .3s;
+    transition: .3s;
+}
+
+/** score **/
+.score{
+    width: 100px;
+    height: 30px;
+    font-size: 24px;
+    text-align: right;
+}
+
+.score__value{
+    font-size: 32px;
+    color: #1d5b00;
+}
