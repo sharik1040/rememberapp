@@ -9,6 +9,12 @@
                                     supported by Chrome and Opera */
 }
 
+/** main container App **/
+.app{
+    display: flex;
+
+}
+
 /** cards grid **/
 .cards{
     max-width: 450px;
@@ -59,4 +65,17 @@
     -webkit-transition: .3s;
     -moz-trasition: .3s;
     transition: .3s;
+}
+
+/** score **/
+.score{
+    width: 100px;
+    height: 30px;
+    font-size: 24px;
+    text-align: right;
+}
+
+.score__value{
+    font-size: 32px;
+    color: #1d5b00;
 }
