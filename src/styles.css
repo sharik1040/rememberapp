@@ -1,0 +1,43 @@
+/** common **/
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+}
+
+/** card item **/
+.cards__item{
+    border:1px solid #040f00;
+    background-color: #1d5b00;
+    border-radius: 5px;
+    width: 100px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards__value{
+    font-size: 40px;
+}
+
+.cards__item--clicked{
+    background-color: #e7edab;
+    color: #1d5b00;
+    -webkit-transition: .5s;
+    -moz-trasition: .5s;
+    transition: .5s;
+}
+
+.cards__item--completed{
+    background-color: #fff;  
+    color: #fff;
+    border:1px solid #fff;
+    -webkit-transition: .3s;
+    -moz-trasition: .3s;
+    transition: .3s;
+}
