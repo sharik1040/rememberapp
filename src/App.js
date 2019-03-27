@@ -7,10 +7,10 @@ import "./styles.css";
 function App(){
     return(
         <div class="app">
-            {/* <CardList />
-            <Score value={0}/> */}
+            <CardList />
+            <Score value={0}/>
 
-            <Modal />
+            {/* <Modal /> */}
         </div>
     )
 }

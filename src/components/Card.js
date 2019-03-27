@@ -8,8 +8,8 @@ class Card extends Component{
     }
 
     render(){
-        const {value} = this.props
-        const body = this.state.isClicked && <section>{value}</section>
+        const {card} = this.props
+        const body = this.state.isClicked && <section>{card.value}</section>
         return (
             <div>
                 <li className={cx(
