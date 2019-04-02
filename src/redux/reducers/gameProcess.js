@@ -1,7 +1,7 @@
 import { CHOOSE_CARD, CHECK_PAIR, CHECK_WIN, START_GAME } from "../actionTypes";
 
 const initialState = {
-    allIds: [0, 2, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11].sort((function(){
+    allIds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].sort((function(){
                                                             return Math.random() - 0.5;}
                                                         )),
     cards: {0:{"id":0, "value":"0", "clicked":false, "completed":false},
@@ -28,13 +28,14 @@ export default function(state = initialState, action) {
         var newState = {
             ...state,
             cards: {
-            ...state.cards,
-            [id]:{
-                ...state.cards[id],
-                clicked: true
+                ...state.cards,
+                [id]:{
+                    ...state.cards[id],
+                    clicked: true
                 }
             },
-            selectedCards: (state.selectedCards) ? [...state.selectedCards, id] : [id]
+            selectedCards: (!state.selectedCards) ? [id]: 
+                        (state.selectedCards.indexOf(id)===-1) ? [...state.selectedCards, id] : [...state.selectedCards]
         }
         return newState;
     }
